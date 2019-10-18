@@ -1,0 +1,61 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<style>
+    body {
+        background-color: darkorchid;
+        font: 100;
+    }
+
+    img.aa {
+        height: 1200px;
+        width: 1400px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    button.er {
+        background-color: chartreuse;
+    }
+
+    button.fa {
+        background-color: darkturquoise;
+    }
+</style>
+
+<button style="fa"> <a href="Drinks">Drinks</a>  </button>
+<button style="er"> <a href="Foods">Foods</a>  </button>
+<div class="text-center">
+    <h1 class="display-4">Welcome To Eat Some Food</h1>
+    <p>Learn about Eating</a>.</p>
+</div>
+<img class="aa" src="https://media3.giphy.com/media/12uXi1GXBibALC/giphy.gif" alt="Food" />
+@if (User.IsInRole("Captain"))
+{
+    <section>
+        <h1>Welcome, Captain!</h1>
+    </section>
+}
+else if (User.IsInRole("Hokage"))
+{
+    <section>
+        <h1>Welcome,Hokage!</h1>
+    </section>
+}
+else if (User.IsInRole("Saiyan"))
+{
+    <section>
+        <h1>Welcome, Saiyan!</h1>
+    </section>
+}
+else
+{
+    <section>
+        <h1>Welcome</h1>
+    </section>
+}

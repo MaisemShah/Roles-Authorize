@@ -1,0 +1,72 @@
+﻿@page
+@model Test1.Pages.Foods.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    body {
+        background-color: turquoise;
+        font: 200;
+    }
+
+    img.ah {
+        height: 1200px;
+        width: 1400px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+</style>
+<h1>Index</h1>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Food[0].Fruits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Food[0].Veggies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Food[0].Meats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Food[0].Drinks)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Food)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fruits)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Veggies)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meats)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Drinks.DID)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.FID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.FID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.FID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<img class="ah" src="http://37.media.tumblr.com/tumblr_lnslrxAWho1ql7dmyo1_500.gif" alt="foo" />

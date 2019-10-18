@@ -1,0 +1,75 @@
+﻿@page
+@model Test1.Pages.Drinks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    body {
+        background-color: turquoise;
+        font: 200;
+    }
+
+    img.ahh {
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    p.ea {
+        background-color: black GrayText:beige;
+    }
+</style>
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Drink[0].Sodas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Drink[0].Juices)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Drink[0].EDrinks)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Drink)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sodas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Juices)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EDrinks)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.DID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.DID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.DID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<img class="ahh" src="https://media1.giphy.com/media/bBkFVAzaASE1i/giphy.gif" alt="foso" />
+<form action="/html/tags/html_form_tag_action.cfm" method="post">
+    <div>
+<textarea name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
+
+</textarea>
+    </div>
+    <input type="submit" value="Submit">
+</form>
